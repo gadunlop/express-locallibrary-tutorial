@@ -24,6 +24,7 @@ app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://user:user10@ds151612.mlab.com:51612/local_library';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://user:user10@ds151612.mlab.com:51612/local_library';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
